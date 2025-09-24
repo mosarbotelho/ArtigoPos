@@ -141,44 +141,43 @@
         <h3>Análise de Clusters e Indicadores Socioeconômicos</h3>
         <p>A funcionalidade de "Análise de Clusters" foi o ponto central da validação da IA. Mapas como os que mostram a distribuição da população, renda média e clusters de população e renda ilustram a capacidade da IA em agrupar estados com base em indicadores socioeconômicos. A **Figura 1** mostra a distribuição da população no Brasil, destacando os estados mais densamente povoados. Já a **Figura 2**, que apresenta um cluster de população e renda, revela como os estados se agrupam em perfis socioeconômicos semelhantes, apontando para padrões de desenvolvimento regional que não se alinham necessariamente às fronteiras geográficas tradicionais.</p>
         <figure>
-            <img src="imagens/Mapa_Populacao.png" alt="Mapa de População no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_Populacao.png" alt="Mapa de População no Brasil.">
             <figcaption class="figure-caption">Figura 1: Distribuição da População nos Estados do Brasil.</figcaption>
         </figure>
         <figure>
-            <img src="imagens/Mapa_RendaMedia.png" alt="Mapa de Renda Média no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_RendaMedia.png" alt="Mapa de Renda Média no Brasil.">
             <figcaption class="figure-caption">Figura 2: Distribuição da Renda Média por Estado no Brasil.</figcaption>
         </figure>
         <figure>
-            <img src="imagens/Mapa_SocioEconomico.png" alt="Mapa de Clusters Socioeconômicos.">
+            <img class="lazy-load-img" data-filename="Mapa_SocioEconomico.png" alt="Mapa de Clusters Socioeconômicos.">
             <figcaption class="figure-caption">Figura 3: Análise de Clusters Socioeconômicos por Estado no Brasil.</figcaption>
         </figure>
 
         <h3>Análise de Saúde Pública e Correlações</h3>
         <p>Os mapas de cluster de saúde foram particularmente reveladores. O mapa de arboviroses, exibido na **Figura 4**, agrupa estados com base na incidência de dengue, zika e chikungunya, destacando áreas de maior risco epidemiológico no país. Esta análise pode servir como uma ferramenta crucial para a alocação de recursos em campanhas de prevenção e controle. Mais notavelmente, as análises de correlação entre saúde e economia: o mapa **"Renda x HIV"**, mostrado na **Figura 5**, e o mapa **"Renda x Tuberculose"**, na **Figura 6**, revelaram correlações significativas. Eles mostram que estados com níveis de renda semelhantes tendem a ter padrões de incidência de HIV e Tuberculose também similares, sugerindo uma relação direta entre o status socioeconômico e a saúde da população. Essa análise de cluster se mostrou uma ferramenta poderosa para identificar e visualizar disparidades sociais de forma geográfica.</p>
         <figure>
-            <img src="imagens/Mapa_Arboviroses.png" alt="Mapa de Clusters de Arboviroses no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_Arboviroses.png" alt="Mapa de Clusters de Arboviroses no Brasil.">
             <figcaption class="figure-caption">Figura 4: Análise de Clusters de Arboviroses (Dengue, Zika, Chikungunya) por Estado.</figcaption>
         </figure>
         <figure>
-            <img src="imagens/Mapa_RendaHIV.png" alt="Mapa de Clusters de Renda e HIV no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_RendaHIV.png" alt="Mapa de Clusters de Renda e HIV no Brasil.">
             <figcaption class="figure-caption">Figura 5: Análise de Clusters para a Correlação entre Renda e Casos de HIV por Estado.</figcaption>
         </figure>
         <figure>
-            <img src="imagens/Mapa_RendaTuberculose.png" alt="Mapa de Clusters de Renda e Tuberculose no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_RendaTuberculose.png" alt="Mapa de Clusters de Renda e Tuberculose no Brasil.">
             <figcaption class="figure-caption">Figura 6: Análise de Clusters para a Correlação entre Renda e Casos de Tuberculose por Estado.</figcaption>
         </figure>
 
         <h3>Indicadores Diversos e Suas Análises</h3>
         <p>O protótipo também apresentou mapas para diversos indicadores individuais, como o de casos totais de COVID-19, exibido na **Figura 7**. A visualização desses dados em um mapa dinâmico facilita a compreensão de sua distribuição espacial. A análise de <strong>"Investidores B3"</strong> e o mapa de **IPCA**, mostrado na **Figura 8**, demonstrou como a IA pode identificar padrões econômicos não óbvios, agrupando estados com base no volume de investidores ou na variação de preços. Esses mapas são úteis para estudos de mercado, planejamento financeiro regional e análise de políticas públicas. Os mapas de servidores públicos e professores por estado fornecem uma visão da estrutura e do investimento público em cada região.</p>
         <figure>
-            <img src="imagens/Mapa_Covid19.png" alt="Mapa de Casos de COVID-19 no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_Covid19.png" alt="Mapa de Casos de COVID-19 no Brasil.">
             <figcaption class="figure-caption">Figura 7: Distribuição de Casos Totais de COVID-19 por Estado.</figcaption>
         </figure>
         <figure>
-            <img src="imagens/Mapa_IPCA_Anual.png" alt="Mapa do IPCA Anual no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_IPCA_Anual.png" alt="Mapa do IPCA Anual no Brasil.">
             <figcaption class="figure-caption">Figura 8: Variação do IPCA (Índice de Preços ao Consumidor Amplo) por Estado.</figcaption>
         </figure>
-
     </section>
 
     <section>
@@ -197,6 +196,30 @@
     </section>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.lazy-load-img');
+    const folder = 'imagens/';
+    
+    images.forEach(img => {
+        const filename = img.getAttribute('data-filename');
+        const imgPathInFolder = folder + filename;
+        const imgPathInRoot = filename;
+
+        // Tenta carregar a imagem na subpasta 'imagens' primeiro
+        const imgTest = new Image();
+        imgTest.onload = () => {
+            img.src = imgPathInFolder;
+        };
+        imgTest.onerror = () => {
+            // Se falhar, tenta carregar no diretório raiz
+            img.src = imgPathInRoot;
+        };
+        imgTest.src = imgPathInFolder;
+    });
+});
+</script>
 
 </body>
 </html>
