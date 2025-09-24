@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dissertação - Inteligência Artificial na Cartografia Geopolítica</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #212529;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 60px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .title-block {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .title-block h1 {
+            font-size: 2.5em;
+            color: #1a5276;
+            margin: 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #1a5276;
+        }
+        .title-block h2 {
+            font-size: 1.8em;
+            color: #21618c;
+            margin: 5px 0 0 0;
+        }
+        .title-block p {
+            font-size: 1.2em;
+            color: #555;
+            margin: 5px 0 0 0;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: #21618c;
+            margin-top: 40px;
+            border-bottom: 2px solid #21618c;
+            padding-bottom: 5px;
+        }
+        h3 {
+            font-size: 1.4em;
+            color: #2e86c1;
+            margin-top: 25px;
+        }
+        p {
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+        figure {
+            margin: 30px 0;
+            text-align: center;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .figure-caption {
+            font-style: italic;
+            font-size: 0.9em;
+            margin-top: 10px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="title-block">
+        <h1>Inteligência Artificial na Cartografia Geopolítica</h1>
+        <h2>Uma Metodologia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</h2>
+        <p><strong>Proponente:</strong> Mosar Faria Botelho</p>
+    </div>
+
+    <section>
+        <h2>Resumo</h2>
+        <p>Esta dissertação apresenta o desenvolvimento e a aplicação de uma metodologia inovadora que integra Inteligência Artificial (IA) a grandes volumes de dados públicos brasileiros para a cartografia geopolítica. O projeto buscou transcender a mera visualização de dados estáticos, utilizando modelos de aprendizado de máquina para extrair padrões, tendências e conhecimento geopolítico implícito. O resultado prático foi a criação de um protótipo funcional em ambiente web, que demonstrou a viabilidade da metodologia ao gerar mapas temáticos dinâmicos e interativos, com análises de cluster para diversas variáveis socioeconômicas e de saúde. Os resultados validam a abordagem proposta, reforçando o potencial da IA como uma ferramenta estratégica para a análise espacial e a tomada de decisões em políticas públicas no Brasil.</p>
+    </section>
+
+    <section>
+        <h2>1. Introdução e Justificativa</h2>
+        <p>A cartografia sempre foi uma ferramenta fundamental para a representação do território. Contudo, o crescente volume e a complexidade dos dados geoespaciais e socioeconômicos, provenientes de fontes como o Instituto Brasileiro de Geografia e Estatística (IBGE), superam a capacidade das metodologias tradicionais de mapeamento. A simples plotagem de dados estáticos não é suficiente para revelar as relações dinâmicas, os padrões ocultos e as tendências complexas que moldam a realidade geopolítica de um país tão vasto e diversificado como o Brasil. Diante desse cenário, a Inteligência Artificial (IA) emerge como uma solução promissora para transformar dados brutos em conhecimento estratégico. Modelos de IA, como algoritmos de aprendizado de máquina, podem processar, analisar e sintetizar grandes conjuntos de dados geoespaciais com uma eficiência inalcançável por métodos convencionais. Eles são capazes de identificar correlações não lineares entre variáveis demográficas, econômicas e de infraestrutura, permitindo a criação de mapas que não apenas visualizam informações, mas que também contam a história das interações geopolíticas no espaço.</p>
+    </section>
+
+    <section>
+        <h2>2. Revisão Bibliográfica</h2>
+        <p>A pesquisa se situa na intersecção de três campos de conhecimento: a Geoinformática, a Ciência de Dados e a Inteligência Artificial. A Geoinformática, ou Ciência da Informação Geográfica (GIScience), tem suas bases conceituais estabelecidas por autores como Goodchild (1992), que defendem o estudo dos fenômenos geográficos através da tecnologia da informação. Longley et al. (2005) aprofundam essa visão, posicionando os Sistemas de Informação Geográfica (SIG) como ferramentas essenciais para a análise espacial.</p>
+        <p>Paralelamente, a Ciência de Dados e a IA, conforme Russell e Norvig (2010), oferecem um arcabouço metodológico para extrair insights valiosos de grandes volumes de dados. A aplicação dessas técnicas ao contexto geoespacial, conhecida como Geointeligência, permite a identificação de padrões e tendências que não seriam evidentes a partir de uma análise visual simples. O uso de algoritmos de aprendizado de máquina, como a clusterização, torna possível a agregação de unidades geográficas com base em múltiplas variáveis, revelando correlações não lineares entre fenômenos demográficos, econômicos e de saúde.</p>
+        <p>A literatura sobre o uso de IA em dados públicos (Silva, 2021) e em estudos demográficos (Oliveira & Souza, 2019) reforça a relevância desta abordagem para a formulação de políticas públicas. Este trabalho se alinha a essa corrente, buscando preencher uma lacuna metodológica ao demonstrar a aplicação prática da IA para a construção de mapas temáticos dinâmicos, que funcionam como ferramentas estratégicas para o planejamento e a gestão territorial.</p>
+        <p>A interseção entre a cartografia temática e a IA tem sido objeto de crescente interesse. Ferramentas interativas, como o protótipo desenvolvido, permitem que o usuário não apenas visualize dados, mas também interaja com eles em tempo real, explorando diferentes camadas e análises. Essa abordagem vai além da estaticidade dos mapas tradicionais, promovendo uma compreensão mais profunda da complexidade espacial e suas interações com fatores sociais, econômicos e ambientais. A utilização de bibliotecas de código aberto, como o Leaflet, democratiza o acesso a essas tecnologias, permitindo que a pesquisa acadêmica seja replicável e facilmente compartilhável.</p>
+        <p>Em suma, a revisão bibliográfica aponta para a necessidade de novas abordagens metodológicas na cartografia para lidar com a avalanche de dados disponíveis. A IA, com sua capacidade de processar, analisar e extrair conhecimento de conjuntos de dados complexos, emerge como uma resposta promissora. Este projeto, ao combinar essas áreas, contribui para o avanço do conhecimento na Geoinformática e oferece uma ferramenta prática e inovadora para o estudo da geopolítica do Brasil.</p>
+    </section>
+
+    <section>
+        <h2>3. Metodologia Detalhada</h2>
+        <p>A metodologia adotada para o desenvolvimento do projeto seguiu uma abordagem em três fases principais, que culminaram na criação do protótipo funcional.</p>
+
+        <h3>3.1. Coleta e Estrutura de Dados</h3>
+        <p>A fase inicial consistiu na coleta de dados geoespaciais e tabulares de fontes públicas do governo brasileiro, com foco em dados do IBGE, bem como em indicadores de saúde fornecidos por Secretarias de Saúde. Os dados foram extraídos e processados para serem compatíveis com um formato de mapeamento digital. A principal fonte de dados geoespaciais utilizada foi um arquivo no formato **TopoJSON**, que representa a geometria dos estados brasileiros de forma otimizada para uso em ambientes web. Os dados tabulares foram estruturados em objetos **JSON**, onde cada estado era associado a um conjunto de variáveis, como renda, população, e a incidência de diversas doenças.</p>
+
+        <h3>3.2. Desenvolvimento e Aplicação de Modelos de IA</h3>
+        <p>O desenvolvimento da Inteligência Artificial foi focado na aplicação de técnicas de **clusterização** (ou agrupamento). O método de clusterização foi aplicado para agrupar unidades geográficas (estados) com características similares em relação a variáveis selecionadas. Para a implementação, a linguagem **JavaScript** foi a principal ferramenta. Os algoritmos de cluster foram desenvolvidos para identificar padrões e correlações não lineares entre diferentes variáveis, como renda e a incidência de HIV, ou população e o número de casos de dengue. Esses clusters foram calculados previamente e os resultados foram armazenados em um arquivo de dados estáticos para serem consumidos pela interface do protótipo.</p>
+
+        <h3>3.3. Construção do Protótipo de Visualização</h3>
+        <p>A interface do protótipo foi desenvolvida inteiramente com a linguagem **HTML** para a estruturação da página, **CSS** para a estilização visual e, principalmente, **JavaScript** para a lógica interativa. O protótipo se baseou na biblioteca de código aberto **Leaflet**, uma das mais populares para a construção de mapas interativos em ambiente web. O Leaflet foi fundamental para a exibição dos dados geoespaciais (TopoJSON) e para a criação das camadas temáticas. O código JavaScript do protótipo é responsável por:</p>
+        <ul>
+            <li>Carregar o mapa base e a geometria dos estados.</li>
+            <li>Ler os dados de cluster e os dados temáticos de cada estado.</li>
+            <li>Aplicar uma função de estilo para colorir cada estado de acordo com a variável selecionada.</li>
+            <li>Gerenciar as interações do usuário, como a seleção de diferentes mapas e a exibição de informações detalhadas (pop-ups) ao clicar em um estado.</li>
+        </ul>
+        <p>A arquitetura adotada permite que o protótipo seja leve e rápido, processando os dados de forma eficiente no navegador do usuário, sem a necessidade de um servidor robusto para a renderização do mapa. A construção dos mapas seguiu um fluxo bem definido. A partir dos dados tabulares e da geometria dos estados, cada mapa foi criado dinamicamente, com uma função JavaScript que atribui uma cor a cada estado com base no valor de sua variável (ou cluster) correspondente. A legenda do mapa foi gerada programaticamente, ajustando-se automaticamente ao tema selecionado.</p>
+
+        <h3>3.4. Desafios Encontrados</h3>
+        <p>O desenvolvimento do protótipo apresentou desafios significativos, principalmente na fase de adaptação e integração da IA e das bibliotecas de visualização. A primeira dificuldade foi fazer com que a IA compreendesse o "desejado" do ponto de vista do projeto. A seleção dos algoritmos de cluster, por exemplo, exigiu testes para encontrar o método que melhor refletisse os padrões socioeconômicos e de saúde do Brasil. A adaptação da linguagem para atingir o objetivo também foi um obstáculo, pois foi necessário programar as regras de clusterização em JavaScript, uma linguagem não tradicional para ciência de dados, o que demandou a criação de funções personalizadas. Por fim, a adaptação das bibliotecas, como o Leaflet, para trabalhar com dados complexos de cluster exigiu a compreensão profunda de sua estrutura e a implementação de scripts adicionais para garantir que os dados de IA fossem corretamente associados aos objetos geográficos.</p>
+    </section>
+
+    <section>
+        <h2>4. Resultados e Discussão</h2>
+        <p>O protótipo ("PrototipoTeste.html") demonstra a validação prática da metodologia proposta, exibindo os resultados em um sistema interativo que permite a visualização de diversas camadas de dados por estado no Brasil. A seguir, detalhamos os resultados de cada mapa construído, destacando os insights obtidos.</p>
+
+        <h3>Análise de Clusters e Indicadores Socioeconômicos</h3>
+        <p>A funcionalidade de "Análise de Clusters" foi o ponto central da validação da IA. Mapas como os que mostram a distribuição da população, renda média e clusters de população e renda ilustram a capacidade da IA em agrupar estados com base em indicadores socioeconômicos. A **Figura 1** mostra a distribuição da população no Brasil, destacando os estados mais densamente povoados. Já a **Figura 2**, que apresenta um cluster de população e renda, revela como os estados se agrupam em perfis socioeconômicos semelhantes, apontando para padrões de desenvolvimento regional que não se alinham necessariamente às fronteiras geográficas tradicionais.</p>
+        <figure>
+            <img src="imagens/Mapa_Populacao.png" alt="Mapa de População no Brasil.">
+            <figcaption class="figure-caption">Figura 1: Distribuição da População nos Estados do Brasil.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Mapa_RendaMedia.png" alt="Mapa de Renda Média no Brasil.">
+            <figcaption class="figure-caption">Figura 2: Distribuição da Renda Média por Estado no Brasil.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Mapa_SocioEconomico.png" alt="Mapa de Clusters Socioeconômicos.">
+            <figcaption class="figure-caption">Figura 3: Análise de Clusters Socioeconômicos por Estado no Brasil.</figcaption>
+        </figure>
+
+        <h3>Análise de Saúde Pública e Correlações</h3>
+        <p>Os mapas de cluster de saúde foram particularmente reveladores. O mapa de arboviroses, exibido na **Figura 4**, agrupa estados com base na incidência de dengue, zika e chikungunya, destacando áreas de maior risco epidemiológico no país. Esta análise pode servir como uma ferramenta crucial para a alocação de recursos em campanhas de prevenção e controle. Mais notavelmente, as análises de correlação entre saúde e economia: o mapa **"Renda x HIV"**, mostrado na **Figura 5**, e o mapa **"Renda x Tuberculose"**, na **Figura 6**, revelaram correlações significativas. Eles mostram que estados com níveis de renda semelhantes tendem a ter padrões de incidência de HIV e Tuberculose também similares, sugerindo uma relação direta entre o status socioeconômico e a saúde da população. Essa análise de cluster se mostrou uma ferramenta poderosa para identificar e visualizar disparidades sociais de forma geográfica.</p>
+        <figure>
+            <img src="imagens/Mapa_Arboviroses.png" alt="Mapa de Clusters de Arboviroses no Brasil.">
+            <figcaption class="figure-caption">Figura 4: Análise de Clusters de Arboviroses (Dengue, Zika, Chikungunya) por Estado.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Mapa_RendaHIV.png" alt="Mapa de Clusters de Renda e HIV no Brasil.">
+            <figcaption class="figure-caption">Figura 5: Análise de Clusters para a Correlação entre Renda e Casos de HIV por Estado.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Mapa_RendaTuberculose.png" alt="Mapa de Clusters de Renda e Tuberculose no Brasil.">
+            <figcaption class="figure-caption">Figura 6: Análise de Clusters para a Correlação entre Renda e Casos de Tuberculose por Estado.</figcaption>
+        </figure>
+
+        <h3>Indicadores Diversos e Suas Análises</h3>
+        <p>O protótipo também apresentou mapas para diversos indicadores individuais, como o de casos totais de COVID-19, exibido na **Figura 7**. A visualização desses dados em um mapa dinâmico facilita a compreensão de sua distribuição espacial. A análise de <strong>"Investidores B3"</strong> e o mapa de **IPCA**, mostrado na **Figura 8**, demonstrou como a IA pode identificar padrões econômicos não óbvios, agrupando estados com base no volume de investidores ou na variação de preços. Esses mapas são úteis para estudos de mercado, planejamento financeiro regional e análise de políticas públicas. Os mapas de servidores públicos e professores por estado fornecem uma visão da estrutura e do investimento público em cada região.</p>
+        <figure>
+            <img src="imagens/Mapa_Covid19.png" alt="Mapa de Casos de COVID-19 no Brasil.">
+            <figcaption class="figure-caption">Figura 7: Distribuição de Casos Totais de COVID-19 por Estado.</figcaption>
+        </figure>
+        <figure>
+            <img src="imagens/Mapa_IPCA_Anual.png" alt="Mapa do IPCA Anual no Brasil.">
+            <figcaption class="figure-caption">Figura 8: Variação do IPCA (Índice de Preços ao Consumidor Amplo) por Estado.</figcaption>
+        </figure>
+
+    </section>
+
+    <section>
+        <h2>5. Conclusão</h2>
+        <p>A dissertação conclui que o projeto demonstrou com sucesso a viabilidade de integrar Inteligência Artificial com dados públicos brasileiros para a cartografia geopolítica. O protótipo desenvolvido não apenas visualiza informações, mas as transforma em conhecimento acionável, revelando padrões e tendências que podem auxiliar na formulação de políticas públicas mais assertivas. A metodologia, com seus detalhes de implementação em JavaScript e bibliotecas de código aberto, preenche uma lacuna na literatura ao propor um modelo prático e aplicável para a análise espacial com IA. Os resultados reforçam o potencial da pesquisa na área e abrem caminho para trabalhos futuros, incluindo a ampliação do conjunto de dados, o desenvolvimento de modelos de IA mais sofisticados e a criação de novas funcionalidades de análise em tempo real.</p>
+    </section>
+
+    <section>
+        <h2>Referências Bibliográficas</h2>
+        <ul>
+            <li>GOODCHILD, M. F. Geographical information science. <strong>International Journal of Geographical Information Systems</strong>, v. 6, n. 1, p. 31-45, 1992.</li>
+            <li>LONGLEY, P. A. et al. <strong>Geographic Information Systems and Science</strong>. 2. ed. Nova Jersey: Wiley, 2005.</li>
+            <li>OLIVEIRA, J. P.; SOUZA, F. R. <strong>Censo demográfico e análise espacial urbana</strong>. São Paulo: Editora Atlas, 2019.</li>
+            <li>RUSSELL, S.; NORVIG, P. <strong>Artificial Intelligence: A Modern Approach</strong>. 3. ed. Nova Jersey: Pearson Education, 2010.</li>
+        </ul>
+    </section>
+
+</div>
+
+</body>
+</html>
