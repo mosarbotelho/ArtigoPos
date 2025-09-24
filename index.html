@@ -145,7 +145,7 @@
             <figcaption class="figure-caption">Figura 1: Distribuição da População nos Estados do Brasil.</figcaption>
         </figure>
         <figure>
-            <img class="lazy-load-img" data-filename="Mapa_RendaMedia.png" alt="Mapa de Renda Média no Brasil.">
+            <img class="lazy-load-img" data-filename="Mapa_RendaMedia.png" alt="Mapa de Renda Média por Estado no Brasil.">
             <figcaption class="figure-caption">Figura 2: Distribuição da Renda Média por Estado no Brasil.</figcaption>
         </figure>
         <figure>
@@ -186,6 +186,11 @@
     </section>
 
     <section>
+        <h2>Nota sobre a Autoria</h2>
+        <p>Este artigo de dissertação foi concebido com a colaboração de uma Inteligência Artificial generativa, atuando sob a supervisão de um especialista em Ciências Geodésicas. A IA foi responsável por estruturar o conteúdo, redigir os parágrafos e, de forma automatizada, identificar e inserir as figuras nos locais corretos. Essa abordagem demonstra o potencial das ferramentas de IA como um recurso complementar e eficiente para a produção acadêmica, garantindo a organização e a correta exemplificação do texto com dados visuais.</p>
+    </section>
+
+    <section>
         <h2>Referências Bibliográficas</h2>
         <ul>
             <li>GOODCHILD, M. F. Geographical information science. <strong>International Journal of Geographical Information Systems</strong>, v. 6, n. 1, p. 31-45, 1992.</li>
@@ -207,13 +212,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgPathInFolder = folder + filename;
         const imgPathInRoot = filename;
 
-        // Tenta carregar a imagem na subpasta 'imagens' primeiro
         const imgTest = new Image();
         imgTest.onload = () => {
             img.src = imgPathInFolder;
         };
         imgTest.onerror = () => {
-            // Se falhar, tenta carregar no diretório raiz
             img.src = imgPathInRoot;
         };
         imgTest.src = imgPathInFolder;
