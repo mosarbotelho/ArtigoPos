@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dissertação - Inteligência Artificial na Cartografia Geopolítica</title>
+    <title>Inteligência Artificial Generativa na Cartografia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</title>
     <style>
         body {
             font-family: 'Times New Roman', Times, serif;
@@ -22,26 +22,64 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
+        
+        /* Barra de Botões de Exportação */
+        .export-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 15px;
+        }
+        .btn-export {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .btn-export:active {
+            transform: scale(0.98);
+        }
+        .btn-pdf {
+            background-color: #c0392b;
+            color: #ffffff;
+        }
+        .btn-pdf:hover {
+            background-color: #a93226;
+        }
+        .btn-docx {
+            background-color: #1f4e79;
+            color: #ffffff;
+        }
+        .btn-docx:hover {
+            background-color: #163a5c;
+        }
+
         .title-block {
             text-align: center;
             margin-bottom: 50px;
         }
         .title-block h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #1a5276;
             margin: 0;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             border-bottom: 3px solid #1a5276;
-        }
-        .title-block h2 {
-            font-size: 1.8em;
-            color: #21618c;
-            margin: 5px 0 0 0;
+            line-height: 1.3;
         }
         .title-block p {
-            font-size: 1.2em;
-            color: #555;
-            margin: 5px 0 0 0;
+            font-size: 1.1em;
+            color: #444;
+            margin: 8px 0 0 0;
+            text-align: center;
         }
         h2 {
             font-size: 1.8em;
@@ -80,15 +118,50 @@
             margin-top: 10px;
             color: #666;
         }
+
+        /* Oculta os botões de exportação ao imprimir/gerar PDF pelo navegador */
+        @media print {
+            body {
+                background-color: #ffffff;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+            }
+            .export-bar {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <!-- Botões de Exportação -->
+    <div class="export-bar">
+        <button class="btn-export btn-pdf" onclick="exportToPDF()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5h-3.5V1.5zM4.5 9a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+            Exportar para PDF
+        </button>
+        <button class="btn-export btn-docx" onclick="exportToDOCX()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M5.485 6.879l1.037 4.296h1.002l1.042-4.296 1.052 4.296h.985l1.037-4.296h-1.003l-.634 2.871-1.011-2.871h-.896l-1.026 2.871-.62-2.871H5.485z"/>
+                <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5h-3.5V1.5zM3 2a1 1 0 0 1 1-1h5v4a1 1 0 0 0 1 1h4v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2z"/>
+            </svg>
+            Exportar para .DOCX
+        </button>
+    </div>
+
+    <!-- Bloco de Título e Autoria -->
     <div class="title-block">
-        <h1>Inteligência Artificial na Cartografia Geopolítica</h1>
-        <h2>Uma Metodologia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</h2>
+        <h1>Inteligência Artificial Generativa na Cartografia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</h1>
         <p><strong>Proponente:</strong> Mosar Faria Botelho</p>
+        <p><strong>Orientador:</strong> Prof. Dr. André Luiz Lopes de Faria</p>
     </div>
 
     <section>
@@ -115,13 +188,13 @@
         <p>A metodologia adotada para o desenvolvimento do projeto seguiu uma abordagem em três fases principais, que culminaram na criação do protótipo funcional.</p>
 
         <h3>3.1. Coleta e Estrutura de Dados</h3>
-        <p>A fase inicial consistiu na coleta de dados geoespaciais e tabulares de fontes públicas do governo brasileiro, com foco em dados do IBGE, bem como em indicadores de saúde fornecidos por Secretarias de Saúde. Os dados foram extraídos e processados para serem compatíveis com um formato de mapeamento digital. A principal fonte de dados geoespaciais utilizada foi um arquivo no formato **TopoJSON**, que representa a geometria dos estados brasileiros de forma otimizada para uso em ambientes web. Os dados tabulares foram estruturados em objetos **JSON**, onde cada estado era associado a um conjunto de variáveis, como renda, população, e a incidência de diversas doenças.</p>
+        <p>A fase inicial consistiu na coleta de dados geoespaciais e tabulares de fontes públicas do governo brasileiro, com foco em dados do IBGE, bem como em indicadores de saúde fornecidos por Secretarias de Saúde. Os dados foram extraídos e processados para serem compatíveis com um formato de mapeamento digital. A principal fonte de dados geoespaciais utilizada foi um arquivo no formato <strong>TopoJSON</strong>, que representa a geometria dos estados brasileiros de forma otimizada para uso em ambientes web. Os dados tabulares foram estruturados em objetos <strong>JSON</strong>, onde cada estado era associado a um conjunto de variáveis, como renda, população, e a incidência de diversas doenças.</p>
 
         <h3>3.2. Desenvolvimento e Aplicação de Modelos de IA</h3>
-        <p>O desenvolvimento da Inteligência Artificial foi focado na aplicação de técnicas de **clusterização** (ou agrupamento). O método de clusterização foi aplicado para agrupar unidades geográficas (estados) com características similares em relação a variáveis selecionadas. Para a implementação, a linguagem **JavaScript** foi a principal ferramenta. Os algoritmos de cluster foram desenvolvidos para identificar padrões e correlações não lineares entre diferentes variáveis, como renda e a incidência de HIV, ou população e o número de casos de dengue. Esses clusters foram calculados previamente e os resultados foram armazenados em um arquivo de dados estáticos para serem consumidos pela interface do protótipo.</p>
+        <p>O desenvolvimento da Inteligência Artificial foi focado na aplicação de técnicas de <strong>clusterização</strong> (ou agrupamento). O método de clusterização foi aplicado para agrupar unidades geográficas (estados) com características similares em relação a variáveis selecionadas. Para a implementação, a linguagem <strong>JavaScript</strong> foi a principal ferramenta. Os algoritmos de cluster foram desenvolvidos para identificar padrões e correlações não lineares entre diferentes variáveis, como renda e a incidência de HIV, ou população e o número de casos de dengue. Esses clusters foram calculados previamente e os resultados foram armazenados em um arquivo de dados estáticos para serem consumidos pela interface do protótipo.</p>
 
         <h3>3.3. Construção do Protótipo de Visualização</h3>
-        <p>A interface do protótipo foi desenvolvida inteiramente com a linguagem **HTML** para a estruturação da página, **CSS** para a estilização visual e, principalmente, **JavaScript** para a lógica interativa. O protótipo se baseou na biblioteca de código aberto **Leaflet**, uma das mais populares para a construção de mapas interativos em ambiente web. O Leaflet foi fundamental para a exibição dos dados geoespaciais (TopoJSON) e para a criação das camadas temáticas. O código JavaScript do protótipo é responsável por:</p>
+        <p>A interface do protótipo foi desenvolvida inteiramente com a linguagem <strong>HTML</strong> para a estruturação da página, <strong>CSS</strong> para a estilização visual e, principalmente, <strong>JavaScript</strong> para a lógica interativa. O protótipo se baseou na biblioteca de código aberto <strong>Leaflet</strong>, uma das mais populares para a construção de mapas interativos em ambiente web. O Leaflet foi fundamental para a exibição dos dados geoespaciais (TopoJSON) e para a criação das camadas temáticas. O código JavaScript do protótipo é responsável por:</p>
         <ul>
             <li>Carregar o mapa base e a geometria dos estados.</li>
             <li>Ler os dados de cluster e os dados temáticos de cada estado.</li>
@@ -139,7 +212,7 @@
         <p>O protótipo ("PrototipoTeste.html") demonstra a validação prática da metodologia proposta, exibindo os resultados em um sistema interativo que permite a visualização de diversas camadas de dados por estado no Brasil. A seguir, detalhamos os resultados de cada mapa construído, destacando os insights obtidos.</p>
 
         <h3>Análise de Clusters e Indicadores Socioeconômicos</h3>
-        <p>A funcionalidade de "Análise de Clusters" foi o ponto central da validação da IA. Mapas como os que mostram a distribuição da população, renda média e clusters de população e renda ilustram a capacidade da IA em agrupar estados com base em indicadores socioeconômicos. A **Figura 1** mostra a distribuição da população no Brasil, destacando os estados mais densamente povoados. Já a **Figura 2**, que apresenta um cluster de população e renda, revela como os estados se agrupam em perfis socioeconômicos semelhantes, apontando para padrões de desenvolvimento regional que não se alinham necessariamente às fronteiras geográficas tradicionais.</p>
+        <p>A funcionalidade de "Análise de Clusters" foi o ponto central da validação da IA. Mapas como os que mostram a distribuição da população, renda média e clusters de população e renda ilustram a capacidade da IA em agrupar estados com base em indicadores socioeconômicos. A <strong>Figura 1</strong> mostra a distribuição da população no Brasil, destacando os estados mais densamente povoados. Já a <strong>Figura 2</strong>, que apresenta um cluster de população e renda, revela como os estados se agrupam em perfis socioeconômicos semelhantes, apontando para padrões de desenvolvimento regional que não se alinham necessariamente às fronteiras geográficas tradicionais.</p>
         <figure>
             <img class="lazy-load-img" data-filename="Mapa_Populacao.png" alt="Mapa de População no Brasil.">
             <figcaption class="figure-caption">Figura 1: Distribuição da População nos Estados do Brasil.</figcaption>
@@ -154,7 +227,7 @@
         </figure>
 
         <h3>Análise de Saúde Pública e Correlações</h3>
-        <p>Os mapas de cluster de saúde foram particularmente reveladores. O mapa de arboviroses, exibido na **Figura 4**, agrupa estados com base na incidência de dengue, zika e chikungunya, destacando áreas de maior risco epidemiológico no país. Esta análise pode servir como uma ferramenta crucial para a alocação de recursos em campanhas de prevenção e controle. Mais notavelmente, as análises de correlação entre saúde e economia: o mapa **"Renda x HIV"**, mostrado na **Figura 5**, e o mapa **"Renda x Tuberculose"**, na **Figura 6**, revelaram correlações significativas. Eles mostram que estados com níveis de renda semelhantes tendem a ter padrões de incidência de HIV e Tuberculose também similares, sugerindo uma relação direta entre o status socioeconômico e a saúde da população. Essa análise de cluster se mostrou uma ferramenta poderosa para identificar e visualizar disparidades sociais de forma geográfica.</p>
+        <p>Os mapas de cluster de saúde foram particularmente reveladores. O mapa de arboviroses, exibido na <strong>Figura 4</strong>, agrupa estados com base na incidência de dengue, zika e chikungunya, destacando áreas de maior risco epidemiológico no país. Esta análise pode servir como uma ferramenta crucial para a alocação de recursos em campanhas de prevenção e controle. Mais notavelmente, as análises de correlação entre saúde e economia: o mapa <strong>"Renda x HIV"</strong>, mostrado na <strong>Figura 5</strong>, e o mapa <strong>"Renda x Tuberculose"</strong>, na <strong>Figura 6</strong>, revelaram correlações significativas. Eles mostram que estados com níveis de renda semelhantes tendem a ter padrões de incidência de HIV e Tuberculose também similares, sugerindo uma relação direta entre o status socioeconômico e a saúde da população. Essa análise de cluster se mostrou uma ferramenta poderosa para identificar e visualizar disparidades sociais de forma geográfica.</p>
         <figure>
             <img class="lazy-load-img" data-filename="Mapa_Arboviroses.png" alt="Mapa de Clusters de Arboviroses no Brasil.">
             <figcaption class="figure-caption">Figura 4: Análise de Clusters de Arboviroses (Dengue, Zika, Chikungunya) por Estado.</figcaption>
@@ -169,7 +242,7 @@
         </figure>
 
         <h3>Indicadores Diversos e Suas Análises</h3>
-        <p>O protótipo também apresentou mapas para diversos indicadores individuais, como o de casos totais de COVID-19, exibido na **Figura 7**. A visualização desses dados em um mapa dinâmico facilita a compreensão de sua distribuição espacial. A análise de <strong>"Investidores B3"</strong> e o mapa de **IPCA**, mostrado na **Figura 8**, demonstrou como a IA pode identificar padrões econômicos não óbvios, agrupando estados com base no volume de investidores ou na variação de preços. Esses mapas são úteis para estudos de mercado, planejamento financeiro regional e análise de políticas públicas. Os mapas de servidores públicos e professores por estado fornecem uma visão da estrutura e do investimento público em cada região.</p>
+        <p>O protótipo também apresentou mapas para diversos indicadores individuais, como o de casos totais de COVID-19, exibido na <strong>Figura 7</strong>. A visualização desses dados em um mapa dinâmico facilita a compreensão de sua distribuição espacial. A análise de <strong>"Investidores B3"</strong> e o mapa de <strong>IPCA</strong>, mostrado na <strong>Figura 8</strong>, demonstrou como a IA pode identificar padrões econômicos não óbvios, agrupando estados com base no volume de investidores ou na variação de preços. Esses mapas são úteis para estudos de mercado, planejamento financeiro regional e análise de políticas públicas. Os mapas de servidores públicos e professores por estado fornecem uma visão da estrutura e do investimento público em cada região.</p>
         <figure>
             <img class="lazy-load-img" data-filename="Mapa_Covid19.png" alt="Mapa de Casos de COVID-19 no Brasil.">
             <figcaption class="figure-caption">Figura 7: Distribuição de Casos Totais de COVID-19 por Estado.</figcaption>
@@ -203,6 +276,7 @@
 </div>
 
 <script>
+// Carregamento Preguiçoso de Imagens
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.lazy-load-img');
     const folder = 'imagens/';
@@ -222,6 +296,51 @@ document.addEventListener('DOMContentLoaded', () => {
         imgTest.src = imgPathInFolder;
     });
 });
+
+// Função para Exportação em PDF
+function exportToPDF() {
+    window.print();
+}
+
+// Função para Exportação em .DOCX (Microsoft Word)
+function exportToDOCX() {
+    const containerHtml = document.querySelector('.container').cloneNode(true);
+    
+    // Remove a barra de botões do HTML exportado
+    const exportBar = containerHtml.querySelector('.export-bar');
+    if (exportBar) exportBar.remove();
+
+    const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+        "xmlns='http://www.w3.org/TR/REC-html40'>" +
+        "<head><meta charset='utf-8'><title>Artigo</title>" +
+        "<style>" +
+        "body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.5; color: #000; }" +
+        "h1 { font-size: 18pt; color: #1a5276; text-align: center; margin-bottom: 12pt; }" +
+        "h2 { font-size: 14pt; color: #21618c; border-bottom: 1px solid #21618c; margin-top: 18pt; }" +
+        "h3 { font-size: 12pt; color: #2e86c1; margin-top: 12pt; }" +
+        "p { text-align: justify; margin-bottom: 10pt; }" +
+        ".title-block { text-align: center; margin-bottom: 20pt; }" +
+        "figure { text-align: center; margin: 15pt 0; }" +
+        ".figure-caption { font-size: 10pt; font-style: italic; color: #555; }" +
+        "</style></head><body>";
+    const footer = "</body></html>";
+    
+    const fullHtml = header + containerHtml.innerHTML + footer;
+
+    const blob = new Blob(['\ufeff' + fullHtml], {
+        type: 'application/msword'
+    });
+    
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Artigo_IA_Generativa_Cartografia.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 </script>
 
 </body>
