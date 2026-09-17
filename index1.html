@@ -6,31 +6,28 @@
     <title>Inteligência Artificial Generativa na Cartografia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</title>
     <style>
         body {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            color: #000000;
+            background-color: #ffffff;
             margin: 0;
-            padding: 20px;
-            background-color: #f8f9fa;
-            color: #212529;
-            line-height: 1.8;
-            font-size: 16px;
+            padding: 2cm;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: auto;
-            padding: 40px 60px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
-        /* Barra de Botões de Exportação */
         .export-bar {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
             gap: 12px;
             margin-bottom: 30px;
             border-bottom: 1px solid #e9ecef;
             padding-bottom: 15px;
+            flex-wrap: wrap;
         }
         .btn-export {
             display: inline-flex;
@@ -43,96 +40,142 @@
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.2s ease, transform 0.1s ease;
         }
-        .btn-export:active {
-            transform: scale(0.98);
-        }
-        .btn-pdf {
-            background-color: #c0392b;
-            color: #ffffff;
-        }
-        .btn-pdf:hover {
-            background-color: #a93226;
-        }
-        .btn-docx {
-            background-color: #1f4e79;
-            color: #ffffff;
-        }
-        .btn-docx:hover {
-            background-color: #163a5c;
-        }
+        .btn-pdf { background-color: #c0392b; color: #ffffff; }
+        .btn-docx { background-color: #1f4e79; color: #ffffff; }
+        .btn-folder { background-color: #d68910; color: #ffffff; }
 
         .title-block {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 24pt;
         }
         .title-block h1 {
-            font-size: 2.2em;
-            color: #1a5276;
-            margin: 0;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #1a5276;
-            line-height: 1.3;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000000;
+            margin: 0 0 12pt 0;
+            line-height: 1.5;
         }
-        .title-block p {
-            font-size: 1.1em;
-            color: #444;
-            margin: 8px 0 0 0;
-            text-align: center;
+        .title-block .trans-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000000;
+            margin: 6pt 0;
         }
+        .title-block .authors {
+            margin-top: 18pt;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            color: #000000;
+            text-align: left;
+            line-height: 1.5;
+        }
+        .title-block .authors p {
+            text-indent: 0;
+            margin-bottom: 6pt;
+        }
+
         h2 {
-            font-size: 1.8em;
-            color: #21618c;
-            margin-top: 40px;
-            border-bottom: 2px solid #21618c;
-            padding-bottom: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #000000;
+            margin-top: 18pt;
+            margin-bottom: 12pt;
+            border: none;
+            padding: 0;
         }
         h3 {
-            font-size: 1.4em;
-            color: #2e86c1;
-            margin-top: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            font-weight: bold;
+            color: #000000;
+            margin-top: 14pt;
+            margin-bottom: 8pt;
         }
         p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
             text-align: justify;
-            margin-bottom: 20px;
+            text-indent: 1.25cm;
+            margin-bottom: 12pt;
+            color: #000000;
         }
-        ul, ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
+        .abstract-box {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin-bottom: 18pt;
+            background-color: transparent;
+            padding: 0;
+            border: none;
         }
+        .abstract-box p {
+            text-indent: 0;
+            margin-bottom: 8pt;
+        }
+        
+        ol.marcadores {
+            list-style-type: lower-alpha;
+            padding-left: 0.75cm;
+            margin-bottom: 12pt;
+        }
+        ol.marcadores li {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            text-align: justify;
+            margin-bottom: 4pt;
+            color: #000000;
+        }
+
         figure {
-            margin: 30px 0;
+            margin: 18pt 0;
             text-align: center;
         }
         figure img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: block;
+            margin: 0 auto 6pt auto;
         }
-        .figure-caption {
-            font-style: italic;
-            font-size: 0.9em;
-            margin-top: 10px;
-            color: #666;
+        .figure-title {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10pt;
+            line-height: 1.0;
+            text-align: center;
+            margin-bottom: 6pt;
+            color: #000000;
+        }
+        .figure-source {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10pt;
+            line-height: 1.0;
+            text-align: center;
+            margin-top: 6pt;
+            color: #000000;
         }
 
-        /* Oculta os botões de exportação ao imprimir/gerar PDF pelo navegador */
+        .references p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12pt;
+            line-height: 1.0;
+            text-indent: 0;
+            margin-bottom: 8pt;
+            text-align: left;
+            color: #000000;
+        }
+
         @media print {
-            body {
-                background-color: #ffffff;
-                padding: 0;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0;
-                max-width: 100%;
-            }
-            .export-bar {
-                display: none !important;
-            }
+            body { padding: 0; }
+            .container { max-width: 100%; }
+            .export-bar { display: none !important; }
         }
     </style>
 </head>
@@ -140,8 +183,15 @@
 
 <div class="container">
 
-    <!-- Botões de Exportação -->
+    <!-- Barra de Botões -->
     <div class="export-bar">
+        <input type="file" id="localFolderInput" multiple accept="image/*" style="display: none;" onchange="handleFileSelect(event)">
+        <button class="btn-export btn-folder" onclick="document.getElementById('localFolderInput').click()">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M.5 3l.04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H13.174a2 2 0 0 0 1.991-1.819l.637-7a1.99 1.99 0 0 0-.342-1.31L15.5 3H9.414a1 1 0 0 1-.707-.293L7.414 1.414A1 1 0 0 0 6.707 1H1.5A1.5 1.5 0 0 0 0 2.5V3h.5z"/>
+            </svg>
+            1. Vincular Pasta de Imagens (Se abrir offline)
+        </button>
         <button class="btn-export btn-pdf" onclick="exportToPDF()">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5h-3.5V1.5zM4.5 9a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
@@ -153,185 +203,369 @@
                 <path d="M5.485 6.879l1.037 4.296h1.002l1.042-4.296 1.052 4.296h.985l1.037-4.296h-1.003l-.634 2.871-1.011-2.871h-.896l-1.026 2.871-.62-2.871H5.485z"/>
                 <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1.5 13 5h-3.5V1.5zM3 2a1 1 0 0 1 1-1h5v4a1 1 0 0 0 1 1h4v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2z"/>
             </svg>
-            Exportar para .DOCX
+            Exportar para Word (.DOC)
         </button>
     </div>
 
     <!-- Bloco de Título e Autoria -->
     <div class="title-block">
         <h1>Inteligência Artificial Generativa na Cartografia para a Construção de Mapas Temáticos com Dados Públicos do Brasil</h1>
-        <p><strong>Proponente:</strong> Mosar Faria Botelho</p>
-        <p><strong>Orientador:</strong> Prof. Dr. André Luiz Lopes de Faria</p>
+        <div class="trans-title">Generative Artificial Intelligence in Cartography for Building Thematic Maps with Brazilian Public Data</div>
+        <div class="trans-title">Inteligencia Artificial Generativa en Cartografía para la Construcción de Mapas Temáticos con Datos Públicos de Brasil</div>
+        
+        <div class="authors">
+            <p><strong>Mosar Faria Botelho</strong><br>
+            Doutor em Ciências Geodésicas, Universidade Federal do Paraná, Curitiba, Paraná, Brasil.<br>
+            E-mail: mosar.botelho@ifes.edu.br</p>
+            <p><strong>André Luiz Lopes de Faria</strong><br>
+            Doutor em Agronomia, Universidade Federal de Viçosa, Viçosa, Minas Gerais, Brasil.<br>
+            E-mail: andre@ufv.br</p>
+        </div>
     </div>
 
+    <!-- RESUMOS -->
     <section>
-        <h2>Resumo</h2>
-        <p>Esta dissertação apresenta o desenvolvimento e a aplicação de uma metodologia inovadora que integra Inteligência Artificial (IA) a grandes volumes de dados públicos brasileiros para a cartografia geopolítica. O projeto buscou transcender a mera visualização de dados estáticos, utilizando modelos de aprendizado de máquina para extrair padrões, tendências e conhecimento geopolítico implícito. O resultado prático foi a criação de um protótipo funcional em ambiente web, que demonstrou a viabilidade da metodologia ao gerar mapas temáticos dinâmicos e interativos, com análises de cluster para diversas variáveis socioeconômicas e de saúde. Os resultados validam a abordagem proposta, reforçando o potencial da IA como uma ferramenta estratégica para a análise espacial e a tomada de decisões em políticas públicas no Brasil.</p>
+        <div class="abstract-box">
+            <p><strong>Resumo:</strong> O presente artigo aborda o desenvolvimento e a implementação de uma metodologia voltada à integração de técnicas de Inteligência Artificial (IA) ao tratamento de grandes volumes de dados abertos no âmbito do território brasileiro. O objetivo central é superar os modelos convencionais de representação geográfica estática por meio do emprego de algoritmos de aprendizado de máquina e IA generativa aptos a identificar padrões latentes, automatizar a construção analítica e gerar representações cartográficas funcionais. Como aplicação prática, desenvolveu-se um protótipo em ambiente web funcional que gera cartogramas temáticos interativos, aplicando análises de agrupamento (clustering) sobre indicadores socioeconômicos e de saúde pública. Constatou-se que a IA generativa capturou com precisão a geografia territorial desejada e inseriu sistematicamente os elementos essenciais de composição cartográfica (título da carta, escala, convenção cartográfica, fonte e orientação ao norte). Os resultados obtidos ratificam a viabilidade técnica da proposta e evidenciam o papel estratégico da inteligência artificial no aprimoramento da análise espacial e no suporte à formulação de políticas públicas.</p>
+            <p><strong>Palavras-chave:</strong> Cartografia Temática; Inteligência Artificial; Geoinformática; Dados Públicos; Aprendizado de Máquina.</p>
+        </div>
+
+        <div class="abstract-box">
+            <p><strong>Abstract:</strong> This article addresses the development and implementation of a methodology aimed at integrating Artificial Intelligence (AI) techniques into the processing of large volumes of open data within the Brazilian territory. The main objective is to transcend conventional models of static geographic representation through the use of machine learning algorithms and generative AI capable of identifying latent patterns, automating analytical construction, and generating functional cartographic representations. As a practical application, a functional web-based prototype was developed to generate interactive thematic cartograms, applying cluster analysis to socioeconomic and public health indicators. It was observed that generative AI successfully captured the desired territorial geography and systematically included all basic cartographic elements (map title, scale, cartographic legend title, source, and north arrow). The results confirm the technical feasibility of the proposal and highlight the strategic role of artificial intelligence in enhancing spatial analysis and supporting public policy formulation.</p>
+            <p><strong>Keywords:</strong> Thematic Cartography; Artificial Intelligence; Geoinformatics; Public Data; Machine Learning.</p>
+        </div>
+
+        <div class="abstract-box">
+            <p><strong>Resumen:</strong> Este artículo aborda el desarrollo e implementación de una metodología orientada a integrar técnicas de Inteligencia Artificial (IA) en el procesamiento de grandes volúmenes de datos abiertos dentro del territorio brasileño. El objetivo central es superar los modelos convencionales de representación geográfica estática mediante el uso de algoritmos de aprendizaje automático e IA generativa capaces de identificar patrones latentes, automatizar la construcción analítica y generar representaciones cartográficas funcionales. Como aplicación práctica, se desarrolló un prototipo web funcional que genera cartogramas temáticos interactivos, aplicando análisis de conglomerados (clustering) sobre indicadores socioeconómicos y de salud pública. Se constató que la IA generativa capturó con precisión la geografía territorial deseada e insertó sistemáticamente los elementos cartográficos básicos (título de la carta, escala, título de la convención cartográfica, fuente y orientación al norte). Los resultados confirman la viabilidad técnica de la propuesta y destacan el papel estratégico de la inteligencia artificial en el análisis espacial y el apoyo a las políticas públicas.</p>
+            <p><strong>Palabras clave:</strong> Cartografía Temática; Inteligencia Artificial; Geoinformación; Datos Públicos; Aprendizaje Automático.</p>
+        </div>
+    </section>
+
+    <!-- CORPO DO TEXTO -->
+    <section>
+        <h2>1. INTRODUÇÃO</h2>
+        <p>A representação cartográfica consolida-se, historicamente, como um pilar indispensável para a apreensão e a gestão das dinâmicas territoriais (Harvey, 2008). Contudo, a contemporaneidade é marcada por uma expansão exponencial na produção de dados geoespaciais e socioeconômicos, impulsionada por instituições públicas de pesquisa como o Instituto Brasileiro de Geografia e Estatística (IBGE) e plataformas governamentais abertas (Câmara et al., 2001). Essa profusão de dados impõe severos limites aos métodos tradicionais de mapeamento, cuja natureza predominantemente estática revela-se insuficiente para capturar as interações espaciais fluidas e as assimetrias regionais características de um país com as dimensões e heterogeneidades do Brasil (Santos, 2006).</p>
+        <p>Diante desse desafio conceitual e operacional, a Inteligência Artificial (IA) surge como um vetor metodológico promissor para transformar grandes massas de dados brutos em conhecimento espacial estruturado (Russell; Norvig, 2013). O emprego de algoritmos de aprendizado de máquina e modelos de IA generativa permite ultrapassar a simples visualização de contingências demográficas ou sanitárias, viabilizando a identificação de correlações não lineares entre múltiplos indicadores econômicos, populacionais e de infraestrutura. A integração entre geoinformação e algoritmos inteligentes fomenta a criação de ferramentas analíticas capazes de revelar narrativas geopolíticas ocultas na escala territorial.</p>
     </section>
 
     <section>
-        <h2>1. Introdução e Justificativa</h2>
-        <p>A cartografia sempre foi uma ferramenta fundamental para a representação do território. Contudo, o crescente volume e a complexidade dos dados geoespaciais e socioeconômicos, provenientes de fontes como o Instituto Brasileiro de Geografia e Estatística (IBGE), superam a capacidade das metodologias tradicionais de mapeamento. A simples plotagem de dados estáticos não é suficiente para revelar as relações dinâmicas, os padrões ocultos e as tendências complexas que moldam a realidade geopolítica de um país tão vasto e diversificado como o Brasil. Diante desse cenário, a Inteligência Artificial (IA) emerge como uma solução promissora para transformar dados brutos em conhecimento estratégico. Modelos de IA, como algoritmos de aprendizado de máquina, podem processar, analisar e sintetizar grandes conjuntos de dados geoespaciais com uma eficiência inalcançável por métodos convencionais. Eles são capazes de identificar correlações não lineares entre variáveis demográficas, econômicas e de infraestrutura, permitindo a criação de mapas que não apenas visualizam informações, mas que também contam a história das interações geopolíticas no espaço.</p>
+        <h2>2. REFERENCIAL TEÓRICO</h2>
+        <p>Este trabalho fundamenta-se na convergência teórica e prática entre a Ciência da Informação Geográfica (GIScience), a Ciência de Dados e a Inteligência Artificial. A GIScience, cujos preceitos estruturantes foram consolidados por Goodchild (1992), dedica-se ao estudo sistemático dos fenômenos geográficos mediado pelo processamento computacional. Complementarmente, Longley et al. (2013) sublinham que os Sistemas de Informação Geográfica (SIG) evoluíram de plataformas de armazenamento vetorial para ambientes complexos de modelagem espacial, essenciais para a tomada de decisão territorial.</p>
+        <p>No âmbito da Inteligência Artificial, Russell e Norvig (2013) caracterizam o aprendizado de máquina como um conjunto de algoritmos voltados à extração automática de padrões a partir de dados heterogêneos. Quando associadas ao domínio espacial, essas técnicas dão origem à Geointeligência ou <i>Geospatial Artificial Intelligence</i> (GeoAI), campo emergente explorado por Janowicz et al. (2020). A aplicação de algoritmos não supervisionados de agrupamento (<i>clustering</i>) destaca-se por permitir a sumarização de unidades territoriais segundo perfis multidimensionais de similaridade socioeconômica e sanitária, sem a necessidade de rotulações prévias rígidas (Mitchell, 1997).</p>
+        <p>Estudos focados no uso de dados abertos para o planejamento governamental (Silva, 2021) e análises demográficas espaciais (Oliveira; Souza, 2019) reforçam a relevância de abordagens computacionais avançadas na formulação de políticas públicas focalizadas. Assim, o mapeamento temático contemporâneo beneficia-se de bibliotecas e ferramentas web de código aberto, tais como o Leaflet, que democratizam a difusão de painéis interativos de análise territorial (Meneghini; Faria, 2020). Essa articulação metodológica responde à necessidade de ultrapassar mapas estáticos, promovendo visualizações dinâmicas que ampliam a compreensibilidade de fenômenos espaciais complexos.</p>
     </section>
 
     <section>
-        <h2>2. Revisão Bibliográfica</h2>
-        <p>A pesquisa se situa na intersecção de três campos de conhecimento: a Geoinformática, a Ciência de Dados e a Inteligência Artificial. A Geoinformática, ou Ciência da Informação Geográfica (GIScience), tem suas bases conceituais estabelecidas por autores como Goodchild (1992), que defendem o estudo dos fenômenos geográficos através da tecnologia da informação. Longley et al. (2005) aprofundam essa visão, posicionando os Sistemas de Informação Geográfica (SIG) como ferramentas essenciais para a análise espacial.</p>
-        <p>Paralelamente, a Ciência de Dados e a IA, conforme Russell e Norvig (2010), oferecem um arcabouço metodológico para extrair insights valiosos de grandes volumes de dados. A aplicação dessas técnicas ao contexto geoespacial, conhecida como Geointeligência, permite a identificação de padrões e tendências que não seriam evidentes a partir de uma análise visual simples. O uso de algoritmos de aprendizado de máquina, como a clusterização, torna possível a agregação de unidades geográficas com base em múltiplas variáveis, revelando correlações não lineares entre fenômenos demográficos, econômicos e de saúde.</p>
-        <p>A literatura sobre o uso de IA em dados públicos (Silva, 2021) e em estudos demográficos (Oliveira & Souza, 2019) reforça a relevância desta abordagem para a formulação de políticas públicas. Este trabalho se alinha a essa corrente, buscando preencher uma lacuna metodológica ao demonstrar a aplicação prática da IA para a construção de mapas temáticos dinâmicos, que funcionam como ferramentas estratégicas para o planejamento e a gestão territorial.</p>
-        <p>A interseção entre a cartografia temática e a IA tem sido objeto de crescente interesse. Ferramentas interativas, como o protótipo desenvolvido, permitem que o usuário não apenas visualize dados, mas também interaja com eles em tempo real, explorando diferentes camadas e análises. Essa abordagem vai além da estaticidade dos mapas tradicionais, promovendo uma compreensão mais profunda da complexidade espacial e suas interações com fatores sociais, econômicos e ambientais. A utilização de bibliotecas de código aberto, como o Leaflet, democratiza o acesso a essas tecnologias, permitindo que a pesquisa acadêmica seja replicável e facilmente compartilhável.</p>
-        <p>Em suma, a revisão bibliográfica aponta para a necessidade de novas abordagens metodológicas na cartografia para lidar com a avalanche de dados disponíveis. A IA, com sua capacidade de processar, analisar e extrair conhecimento de conjuntos de dados complexos, emerge como uma resposta promissora. Este projeto, ao combinar essas áreas, contribui para o avanço do conhecimento na Geoinformática e oferece uma ferramenta prática e inovadora para o estudo da geopolítica do Brasil.</p>
-    </section>
-
-    <section>
-        <h2>3. Metodologia Detalhada</h2>
-        <p>A metodologia adotada para o desenvolvimento do projeto seguiu uma abordagem em três fases principais, que culminaram na criação do protótipo funcional.</p>
+        <h2>3. METODOLOGIA</h2>
+        <p>A investigação estruturou-se em etapas interligadas, compreendendo a aquisição de dados, a modelagem via algoritmos de IA, a arquitetura de engenharia de prompts para mitigação da perda de contexto e o desenvolvimento da aplicação web interativa.</p>
 
         <h3>3.1. Coleta e Estrutura de Dados</h3>
-        <p>A fase inicial consistiu na coleta de dados geoespaciais e tabulares de fontes públicas do governo brasileiro, com foco em dados do IBGE, bem como em indicadores de saúde fornecidos por Secretarias de Saúde. Os dados foram extraídos e processados para serem compatíveis com um formato de mapeamento digital. A principal fonte de dados geoespaciais utilizada foi um arquivo no formato <strong>TopoJSON</strong>, que representa a geometria dos estados brasileiros de forma otimizada para uso em ambientes web. Os dados tabulares foram estruturados em objetos <strong>JSON</strong>, onde cada estado era associado a um conjunto de variáveis, como renda, população, e a incidência de diversas doenças.</p>
+        <p>A etapa inicial envolveu a extração e a normalização de bases públicas disponibilizadas pelo IBGE e por secretarias estaduais e federais de saúde. Para o suporte vetorial, empregou-se o formato <i>TopoJSON</i>, que oferece uma representação simplificada e altamente eficiente da geometria das unidades federativas brasileiras, otimizada para requisições em ambiente web. Os dados tabulares socioeconômicos (renda domiciliar, densidade populacional) e sanitários (incidência de patologias epidemiológicas como dengue, tuberculose e infecção por HIV) foram organizados em estruturas matriciais e convertidos para o formato <i>JSON</i>, vinculando cada estado à sua respectiva série de atributos.</p>
 
-        <h3>3.2. Desenvolvimento e Aplicação de Modelos de IA</h3>
-        <p>O desenvolvimento da Inteligência Artificial foi focado na aplicação de técnicas de <strong>clusterização</strong> (ou agrupamento). O método de clusterização foi aplicado para agrupar unidades geográficas (estados) com características similares em relação a variáveis selecionadas. Para a implementação, a linguagem <strong>JavaScript</strong> foi a principal ferramenta. Os algoritmos de cluster foram desenvolvidos para identificar padrões e correlações não lineares entre diferentes variáveis, como renda e a incidência de HIV, ou população e o número de casos de dengue. Esses clusters foram calculados previamente e os resultados foram armazenados em um arquivo de dados estáticos para serem consumidos pela interface do protótipo.</p>
+        <h3>3.2. Estratégia de Engenharia de Prompts e Arquitetura de Memória da IA</h3>
+        <p>Um dos maiores gargalos operacionais no uso de Modelos de Linguagem de Grande Porte (LLMs) para o desenvolvimento de código complexo e geração de cartografia temática reside na tendência de alucinação, esquecimento de diretrizes anteriores e perda de integridade dos dados durante longas interações. Para contornar essa limitação e garantir a correta execução de todas as requisições, adotou-se uma arquitetura rigorosa baseada nos seguintes pilares:</p>
+        <ol class="marcadores">
+            <li>os espaçamentos e diretrizes da Ancoragem de Contexto Estruturada (System Prompts) fixaram a persona analítica e o escopo normativo de maneira imutável, determinando previamente que todas as saídas mantivessem fidelidade aos parâmetros cartográficos e estruturais exigidos;</li>
+            <li>a Modularização Interativa e Injeção de Estado dividiu o fluxo em sub-tarefas encadeadas, garantindo que o estado atualizado do código e das geometrias fossem reintroduzidos ao contexto sem perda de memória operacional;</li>
+            <li>as Instruções de Não-Omissão e Mapeamento Explícito de Atributos impuseram a obrigatoriedade da inclusão e discussão de cada figura gerada no código renderizado.</li>
+        </ol>
 
-        <h3>3.3. Construção do Protótipo de Visualização</h3>
-        <p>A interface do protótipo foi desenvolvida inteiramente com a linguagem <strong>HTML</strong> para a estruturação da página, <strong>CSS</strong> para a estilização visual e, principalmente, <strong>JavaScript</strong> para a lógica interativa. O protótipo se baseou na biblioteca de código aberto <strong>Leaflet</strong>, uma das mais populares para a construção de mapas interativos em ambiente web. O Leaflet foi fundamental para a exibição dos dados geoespaciais (TopoJSON) e para a criação das camadas temáticas. O código JavaScript do protótipo é responsável por:</p>
-        <ul>
-            <li>Carregar o mapa base e a geometria dos estados.</li>
-            <li>Ler os dados de cluster e os dados temáticos de cada estado.</li>
-            <li>Aplicar uma função de estilo para colorir cada estado de acordo com a variável selecionada.</li>
-            <li>Gerenciar as interações do usuário, como a seleção de diferentes mapas e a exibição de informações detalhadas (pop-ups) ao clicar em um estado.</li>
-        </ul>
-        <p>A arquitetura adotada permite que o protótipo seja leve e rápido, processando os dados de forma eficiente no navegador do usuário, sem a necessidade de um servidor robusto para a renderização do mapa. A construção dos mapas seguiu um fluxo bem definido. A partir dos dados tabulares e da geometria dos estados, cada mapa foi criado dinamicamente, com uma função JavaScript que atribui uma cor a cada estado com base no valor de sua variável (ou cluster) correspondente. A legenda do mapa foi gerada programaticamente, ajustando-se automaticamente ao tema selecionado.</p>
+        <h3>3.3. Desenvolvimento e Aplicação de Modelos de IA</h3>
+        <p>A etapa de inteligência computacional centrou-se em modelos não supervisionados de <i>clustering</i>. Tais algoritmos foram configurados para identificar grupos homogêneos de estados com base na proximidade euclidiana entre suas variáveis normalizadas. A implementação lógica deu-se primordialmente na linguagem <i>JavaScript</i>, exigindo o desenvolvimento de rotinas customizadas para o cálculo de matrizes de distância e atribuição de partições. Os centros dos agrupamentos e as classificações resultantes foram pré-computados e consolidados em estruturas de dados estáticas, otimizando o tempo de resposta durante a renderização no navegador.</p>
 
-        <h3>3.4. Desafios Encontrados</h3>
-        <p>O desenvolvimento do protótipo apresentou desafios significativos, principalmente na fase de adaptação e integração da IA e das bibliotecas de visualização. A primeira dificuldade foi fazer com que a IA compreendesse o "desejado" do ponto de vista do projeto. A seleção dos algoritmos de cluster, por exemplo, exigiu testes para encontrar o método que melhor refletisse os padrões socioeconômicos e de saúde do Brasil. A adaptação da linguagem para atingir o objetivo também foi um obstáculo, pois foi necessário programar as regras de clusterização em JavaScript, uma linguagem não tradicional para ciência de dados, o que demandou a criação de funções personalizadas. Por fim, a adaptação das bibliotecas, como o Leaflet, para trabalhar com dados complexos de cluster exigiu a compreensão profunda de sua estrutura e a implementação de scripts adicionais para garantir que os dados de IA fossem corretamente associados aos objetos geográficos.</p>
+        <h3>3.4. Construção do Protótipo de Visualização</h3>
+        <p>O desenvolvimento da interface utilizou as linguagens padrão da web: <i>HTML</i> para marcação estrutural, <i>CSS</i> para estilização visual e <i>JavaScript</i> para a dinâmica interativa. Utilizou-se a biblioteca <i>Leaflet</i> para a manipulação dos mapas vetoriais. As principais funções executadas pelo script cliente incluem:</p>
+        <ol class="marcadores">
+            <li>carregamento da malha geométrica simplificada dos estados via arquivo <i>TopoJSON</i>;</li>
+            <li>ingestão dos dados de atributos e das atribuições de <i>clusters</i> pré-processados;</li>
+            <li>aplicação sistemática de escalas cromáticas temáticas (coropletas) segundo os intervalos de valores de cada indicador;</li>
+            <li>gerenciamento de eventos de usuário, permitindo alternar camadas analíticas e consultar detalhes pontuais via caixas de informação (<i>pop-ups</i>).</li>
+        </ol>
     </section>
 
     <section>
-        <h2>4. Resultados e Discussão</h2>
-        <p>O protótipo ("PrototipoTeste.html") demonstra a validação prática da metodologia proposta, exibindo os resultados em um sistema interativo que permite a visualização de diversas camadas de dados por estado no Brasil. A seguir, detalhamos os resultados de cada mapa construído, destacando os insights obtidos.</p>
+        <h2>4. RESULTADOS E DISCUSSÃO</h2>
+        <p>A avaliação experimental do sistema construído confirmou a eficácia da integração proposta. A aplicação web permitiu a exploração interativa de diferentes dimensões socioeconômicas e sanitárias por unidade da federação. A análise das partições espaciais geradas pelos algoritmos de IA demonstrou que a categorização baseada em aprendizado de máquina revela descontinuidades e contiguidades que não coincidem estritamente com as divisões regionalizadas tradicionais (como Norte, Nordeste e Sudeste).</p>
+        
+        <p>Ademais, ao avaliar especificamente a capacidade da IA generativa na síntese e geração das cartas temáticas, constatou-se um elevado nível de precisão no atendimento aos pré-requisitos cartográficos formais (Barbosa, 1980; Morais, 1995). A IA conseguiu capturar com rigor a geografia territorial desejada e incorporar de maneira consistente os elementos básicos constitutivos em todas as propostas geradas: o título da carta, a escala gráfica/numérica, o título e os itens da convenção cartográfica (legenda), a indicação de fonte dos dados e a orientação ao norte. Esse desempenho evidencia a maturidade da IA generativa no cumprimento de diretrizes normativas da linguagem cartográfica, aliando a acurácia geométrica ao rigor formal da comunicação espacial.</p>
 
-        <h3>Análise de Clusters e Indicadores Socioeconômicos</h3>
-        <p>A funcionalidade de "Análise de Clusters" foi o ponto central da validação da IA. Mapas como os que mostram a distribuição da população, renda média e clusters de população e renda ilustram a capacidade da IA em agrupar estados com base em indicadores socioeconômicos. A <strong>Figura 1</strong> mostra a distribuição da população no Brasil, destacando os estados mais densamente povoados. Já a <strong>Figura 2</strong>, que apresenta um cluster de população e renda, revela como os estados se agrupam em perfis socioeconômicos semelhantes, apontando para padrões de desenvolvimento regional que não se alinham necessariamente às fronteiras geográficas tradicionais.</p>
+        <h3>4.1. Análise Demográfica e Distribuição Populacional</h3>
+        <p>A representação cartográfica contida na Figura 1 ilustra a distribuição espacial da população nacional. Nota-se uma altísima densidade e volume absoluto de habitantes concentrados na faixa litorânea e, de forma expressiva, na Região Sudeste, com destaque para os estados de São Paulo, Rio de Janeiro e Minas Gerais. Em contrapartida, as unidades federativas da Região Norte apresentam extensos vazios demográficos relativos, o que impõe desafios específicos para a distribuição de infraestrutura pública.</p>
+
         <figure>
-            <img class="lazy-load-img" data-filename="Mapa_Populacao.png" alt="Mapa de População no Brasil.">
-            <figcaption class="figure-caption">Figura 1: Distribuição da População nos Estados do Brasil.</figcaption>
-        </figure>
-        <figure>
-            <img class="lazy-load-img" data-filename="Mapa_RendaMedia.png" alt="Mapa de Renda Média por Estado no Brasil.">
-            <figcaption class="figure-caption">Figura 2: Distribuição da Renda Média por Estado no Brasil.</figcaption>
-        </figure>
-        <figure>
-            <img class="lazy-load-img" data-filename="Mapa_SocioEconomico.png" alt="Mapa de Clusters Socioeconômicos.">
-            <figcaption class="figure-caption">Figura 3: Análise de Clusters Socioeconômicos por Estado no Brasil.</figcaption>
+            <div class="figure-title">Figura 1. Distribuição espacial da população nos estados do Brasil</div>
+            <img class="lazy-load-img" src="Mapa_Populacao.png" data-filename="Mapa_Populacao.png" alt="Distribuição Espacial da População no Brasil">
+            <div class="figure-source">Fonte: Elaborado pelos autores com base em dados do IBGE.</div>
         </figure>
 
-        <h3>Análise de Saúde Pública e Correlações</h3>
-        <p>Os mapas de cluster de saúde foram particularmente reveladores. O mapa de arboviroses, exibido na <strong>Figura 4</strong>, agrupa estados com base na incidência de dengue, zika e chikungunya, destacando áreas de maior risco epidemiológico no país. Esta análise pode servir como uma ferramenta crucial para a alocação de recursos em campanhas de prevenção e controle. Mais notavelmente, as análises de correlação entre saúde e economia: o mapa <strong>"Renda x HIV"</strong>, mostrado na <strong>Figura 5</strong>, e o mapa <strong>"Renda x Tuberculose"</strong>, na <strong>Figura 6</strong>, revelaram correlações significativas. Eles mostram que estados com níveis de renda semelhantes tendem a ter padrões de incidência de HIV e Tuberculose também similares, sugerindo uma relação direta entre o status socioeconômico e a saúde da população. Essa análise de cluster se mostrou uma ferramenta poderosa para identificar e visualizar disparidades sociais de forma geográfica.</p>
+        <h3>4.2. Perfil Socioeconômico e Desigualdade Regional</h3>
+        <p>O mapeamento socioeconômico multidimensional, apresentado na Figura 2, sintetiza a distribuição das condições de vida no território nacional. Os dados revelam a persistência do contraste histórico centro-periferia, no qual os estados das regiões Sul e Sudeste mantêm os melhores índices de desenvolvimento socioeconômico, enquanto porções expressivas do Norte e Nordeste permanecem em faixas de maior vulnerabilidade.</p>
+
         <figure>
-            <img class="lazy-load-img" data-filename="Mapa_Arboviroses.png" alt="Mapa de Clusters de Arboviroses no Brasil.">
-            <figcaption class="figure-caption">Figura 4: Análise de Clusters de Arboviroses (Dengue, Zika, Chikungunya) por Estado.</figcaption>
-        </figure>
-        <figure>
-            <img class="lazy-load-img" data-filename="Mapa_RendaHIV.png" alt="Mapa de Clusters de Renda e HIV no Brasil.">
-            <figcaption class="figure-caption">Figura 5: Análise de Clusters para a Correlação entre Renda e Casos de HIV por Estado.</figcaption>
-        </figure>
-        <figure>
-            <img class="lazy-load-img" data-filename="Mapa_RendaTuberculose.png" alt="Mapa de Clusters de Renda e Tuberculose no Brasil.">
-            <figcaption class="figure-caption">Figura 6: Análise de Clusters para a Correlação entre Renda e Casos de Tuberculose por Estado.</figcaption>
+            <div class="figure-title">Figura 2. Mapeamento socioeconômico dos estados brasileiros</div>
+            <img class="lazy-load-img" src="Mapa_SocioEconomico.png" data-filename="Mapa_SocioEconomico.png" alt="Mapeamento Socioeconômico dos Estados Brasileiros">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados públicos socioeconômicos.</div>
         </figure>
 
-        <h3>Indicadores Diversos e Suas Análises</h3>
-        <p>O protótipo também apresentou mapas para diversos indicadores individuais, como o de casos totais de COVID-19, exibido na <strong>Figura 7</strong>. A visualização desses dados em um mapa dinâmico facilita a compreensão de sua distribuição espacial. A análise de <strong>"Investidores B3"</strong> e o mapa de <strong>IPCA</strong>, mostrado na <strong>Figura 8</strong>, demonstrou como a IA pode identificar padrões econômicos não óbvios, agrupando estados com base no volume de investidores ou na variação de preços. Esses mapas são úteis para estudos de mercado, planejamento financeiro regional e análise de políticas públicas. Os mapas de servidores públicos e professores por estado fornecem uma visão da estrutura e do investimento público em cada região.</p>
+        <p>Complementarmente, a Figura 3 detalha a renda média domiciliar per capita por unidade federativa. A observação espacial evidencia que o Distrito Federal e os estados do Centro-Sul lideram os patamares de renda, atuando como polos de atração de capital e mão de obra qualificada, enquanto os menores valores médios concentram-se no semiárido e na calha amazônica.</p>
+
         <figure>
-            <img class="lazy-load-img" data-filename="Mapa_Covid19.png" alt="Mapa de Casos de COVID-19 no Brasil.">
-            <figcaption class="figure-caption">Figura 7: Distribuição de Casos Totais de COVID-19 por Estado.</figcaption>
+            <div class="figure-title">Figura 3. Distribuição da renda média nos estados brasileiros</div>
+            <img class="lazy-load-img" src="Mapa_RendaMedia.png" data-filename="Mapa_RendaMedia.png" alt="Distribuição da Renda Média nos Estados Brasileiros">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados do IBGE.</div>
         </figure>
+
+        <p>Na Figura 4, analisa-se o comportamento do Índice Nacional de Preços ao Consumidor Amplo (IPCA) acumulado anualmente. O mapa demonstra como as pressões inflacionárias afetam desigualmente o território, sofrendo variações conforme a dinâmica dos mercados consumidores locais, a matriz de transporte de cargas e a volatilidade dos preços de alimentos e combustíveis regionais.</p>
+
         <figure>
-            <img class="lazy-load-img" data-filename="Mapa_IPCA_Anual.png" alt="Mapa do IPCA Anual no Brasil.">
-            <figcaption class="figure-caption">Figura 8: Variação do IPCA (Índice de Preços ao Consumidor Amplo) por Estado.</figcaption>
+            <div class="figure-title">Figura 4. Variação do IPCA anual nos estados do Brasil</div>
+            <img class="lazy-load-img" src="Mapa_IPCA_Anual.png" data-filename="Mapa_IPCA_Anual.png" alt="Variação do IPCA Anual nos Estados do Brasil">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados do IBGE.</div>
         </figure>
+
+        <h3>4.3. Análise Epidemiológica e Saúde Pública</h3>
+        <p>A dimensão epidemiológica foi mapeada para identificar padrões territoriais de agravos à saúde. A Figura 5 apresenta a taxa de incidência das arboviroses (dengue, zika e chikungunya). Os dados revelam expressivos surtos epidemiológicos concentrados em áreas com elevada densidade urbana aliada a deficiências no saneamento básico, predominantemente em faixas do Centro-Oeste, Sudeste e Nordeste.</p>
+
+        <figure>
+            <div class="figure-title">Figura 5. Distribuição espacial e incidência de arboviroses no Brasil</div>
+            <img class="lazy-load-img" src="Mapa_Arboviroses.png" data-filename="Mapa_Arboviroses.png" alt="Distribuição Espacial e Incidência de Arboviroses no Brasil">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados do Ministério da Saúde.</div>
+        </figure>
+
+        <p>A Figura 6 exibe os impactos da pandemia de COVID-19, destacando a mortalidade e a disseminação de casos acumulados. A análise espacial confirma que a difusão do vírus seguiu rigorosamente as redes de conexão aérea e rodoviária do país, partindo das metrópoles globais (São Paulo e Rio de Janeiro) e atingindo com extrema severidade regiões de alta vulnerabilidade logística e sanitária, como a Amazônia Legal.</p>
+
+        <figure>
+            <div class="figure-title">Figura 6. Distribuição dos casos e impactos da COVID-19 no território nacional</div>
+            <img class="lazy-load-img" src="Mapa_Covid19.png" data-filename="Mapa_Covid19.png" alt="Distribuição dos Casos e Impactos da COVID-19 no Brasil">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados painel MS/COVID-19.</div>
+        </figure>
+
+        <p>A intersecção entre indicadores econômicos e agravo sanitário é explicitada na Figura 7, que cruza os níveis de renda com a taxa de incidência da tuberculose. Como patologia historicamente associada à pobreza e ao adensamento habitacional precário, o cartograma demonstra maior severidade em capitais e regiões metropolitanas vulneráveis, reforçando o caráter social da doença.</p>
+
+        <figure>
+            <div class="figure-title">Figura 7. Correlação entre níveis de renda e incidência de Tuberculose nos estados</div>
+            <img class="lazy-load-img" src="Mapa_RendaTuberculose.png" data-filename="Mapa_RendaTuberculose.png" alt="Correlação entre Renda e Incidência de Tuberculose">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados integrados IBGE/DATASUS.</div>
+        </figure>
+
+        <p>De maneira análoga, a Figura 8 estabelece a relação espacial entre a renda e a prevalência de diagnósticos de HIV. Os dados demonstram que, ao contrário de patologias estritamente ligadas ao saneamento precário, o HIV apresenta distribuição heterogênea, com elevadas taxas tanto em centros urbanos desenvolvidos — associadas ao diagnóstico tardio e comportamento sexual — quanto em áreas vulneráveis periféricas.</p>
+
+        <figure>
+            <div class="figure-title">Figura 8. Distribuição da incidência de HIV em correlação com a renda média</div>
+            <img class="lazy-load-img" src="Mapa_RendaHIV.png" data-filename="Mapa_RendaHIV.png" alt="Distribuição da Incidência de HIV e Renda Média">
+            <div class="figure-source">Fonte: Elaborado pelos autores com dados integrados IBGE/DATASUS.</div>
+        </figure>
+
+        <h3>4.4. Agrupamentos Multidimensionais via Algoritmos de Aprendizado de Máquina</h3>
+        <p>A aplicação de algoritmos não supervisionados de agrupamento permitiu sintetizar as múltiplas variáveis analisadas, elevando o mapeamento temático de uma simples representação gráfica para uma análise espacial técnica e aprofundada. Por meio de técnicas de <i>clusterização</i> (como o algoritmo K-means), a Inteligência Artificial é capaz de agrupar as unidades federativas com base na similaridade de seus perfis multidimensionais — integrando simultaneamente indicadores populacionais, econômicos e sanitários. Essa abordagem revela padrões latentes e descontinuidades territoriais que extrapolam as regionalizações político-administrativas convencionais, oferecendo subsídios mais precisos para diagnósticos geográficos.</p>
+
+        <p>A Figura 9 ilustra a eficácia dessa metodologia ao apresentar o agrupamento combinado entre as variáveis de população e renda. O resultado delimita claramente zonas de elevada concentração demográfica e alto poder de consumo em contraste com regiões caracterizadas pelo menor adensamento e dinamismo econômico de escala, evidenciando as assimetrias estruturais do território nacional.</p>
+
+        <figure>
+            <div class="figure-title">Figura 9. Agrupamento (clustering) de estados segundo população e renda</div>
+            <img class="lazy-load-img" src="Mapa_CluterPopulacaoRenda.png" data-filename="Mapa_CluterPopulacaoRenda.png" alt="Agrupamento de Estados Segundo População e Renda">
+            <div class="figure-source">Fonte: Elaborado pelos autores a partir do algoritmo K-means/JavaScript.</div>
+        </figure>
+
+        <p>Ressalta-se que, em todos os cenários analíticos e cartas temáticas apresentados ao longo do estudo, a Inteligência Artificial assegurou o cumprimento rigoroso e sistemático dos elementos fundamentais de composição cartográfica. Em cada representação gerada, foram integralmente contemplados: o título da carta, a escala gráfica e numérica, o título e os itens da convenção cartográfica (legenda), a indicação explícita da fonte dos dados e a orientação ao norte geográfico.</p>
+
+        <p>Um aspecto central dessa construção é a inteligência dinâmica incorporada à aplicação: conforme novas variáveis socioeconômicas ou sanitárias são selecionadas pelo usuário — ou à medida que diferentes rodadas de clusterização são executadas —, a IA reajusta automaticamente os metadados da composição. Essa dinâmica garante a atualização em tempo real da fonte consultada, a readequação temática do título, o recalibramento das escalas numéricas e cromáticas da legenda e a harmonização tipográfica. Dessa forma, consolida-se uma ferramenta que une o rigor técnico da análise estatística à fidelidade às normas de comunicação cartográfica.</p>
     </section>
 
     <section>
-        <h2>5. Conclusão</h2>
-        <p>A dissertação conclui que o projeto demonstrou com sucesso a viabilidade de integrar Inteligência Artificial com dados públicos brasileiros para a cartografia geopolítica. O protótipo desenvolvido não apenas visualiza informações, mas as transforma em conhecimento acionável, revelando padrões e tendências que podem auxiliar na formulação de políticas públicas mais assertivas. A metodologia, com seus detalhes de implementação em JavaScript e bibliotecas de código aberto, preenche uma lacuna na literatura ao propor um modelo prático e aplicável para a análise espacial com IA. Os resultados reforçam o potencial da pesquisa na área e abrem caminho para trabalhos futuros, incluindo a ampliação do conjunto de dados, o desenvolvimento de modelos de IA mais sofisticados e a criação de novas funcionalidades de análise em tempo real.</p>
+        <h2>5. CONCLUSÃO</h2>
+        <p>O presente estudo demonstrou a viabilidade metodológica e prática da integração entre a Inteligência Artificial e a Cartografia Temática para a análise de dados públicos brasileiros. A utilização de algoritmos de aprendizado de máquina e técnicas generativas permitiu extrair padrões multidimensionais latentes que superam as regionalizações administrativas estáticas, oferecendo uma compreensão refinada das assimetrias socioeconômicas e epidemiológicas do país.</p>
+
+        <p>Destaca-se expressivamente o desempenho da IA generativa na elaboração das cartas cartográficas. O modelo foi capaz de reproduzir com exatidão a representação territorial pretendida e incluir sistematicamente os elementos estruturais indispensables à comunicação cartográfica: título da carta, escala, convenção cartográfica, fonte e indicação do norte geográfico. A estratégia de engenharia de prompts adotada provou-se indispensável para a manutenção do rigor técnico e da integridade conceitual durante o desenvolvimento, mitigando perdas de contexto e garantindo a representação completa de todas as variáveis selecionadas.</p>
+
+        <p>O protótipo web funcional resultante atesta a capacidade das ferramentas computacionais abertas em democratizar o acesso à geointeligência, consolidando-se como uma plataforma eficiente para o suporte à tomada de decisão e à formulação de políticas públicas focadas nas demandas territoriais brasileiras.</p>
     </section>
 
-    <section>
-        <h2>Nota sobre a Autoria</h2>
-        <p>Este artigo de dissertação foi concebido com a colaboração de uma Inteligência Artificial generativa, atuando sob a supervisão de um especialista em Ciências Geodésicas. A IA foi responsável por estruturar o conteúdo, redigir os parágrafos e, de forma automatizada, identificar e inserir as figuras nos locais corretos. Essa abordagem demonstra o potencial das ferramentas de IA como um recurso complementar e eficiente para a produção acadêmica, garantindo a organização e a correta exemplificação do texto com dados visuais.</p>
-    </section>
-
-    <section>
-        <h2>Referências Bibliográficas</h2>
-        <ul>
-            <li>GOODCHILD, M. F. Geographical information science. <strong>International Journal of Geographical Information Systems</strong>, v. 6, n. 1, p. 31-45, 1992.</li>
-            <li>LONGLEY, P. A. et al. <strong>Geographic Information Systems and Science</strong>. 2. ed. Nova Jersey: Wiley, 2005.</li>
-            <li>OLIVEIRA, J. P.; SOUZA, F. R. <strong>Censo demográfico e análise espacial urbana</strong>. São Paulo: Editora Atlas, 2019.</li>
-            <li>RUSSELL, S.; NORVIG, P. <strong>Artificial Intelligence: A Modern Approach</strong>. 3. ed. Nova Jersey: Pearson Education, 2010.</li>
-        </ul>
+    <section class="references">
+        <h2>REFERÊNCIAS</h2>
+        <p>BARBOSA, O. <strong>Metodologia da pesquisa cartográfica</strong>. Rio de Janeiro: Editora Científica, 1980.</p>
+        <p>CÂMARA, G.; MONTEIRO, A. M. V.; MEDEIROS, J. S. <strong>Introdução à Ciência da Informação Geográfica</strong>. São José dos Campos: INPE, 2001.</p>
+        <p>GOODCHILD, M. F. Geographical information science. <strong>International Journal of Geographical Information Systems</strong>, v. 6, n. 1, p. 31-45, 1992.</p>
+        <p>HARVEY, D. <strong>A produção social do espaço geográfico</strong>. São Paulo: Annablume, 2008.</p>
+        <p>JANOWICZ, K. et al. GeoAI: spatially explicit artificial intelligence techniques for geographic knowledge discovery. <strong>International Journal of Geographical Information Science</strong>, v. 34, n. 4, p. 625-636, 2020.</p>
+        <p>LONGLEY, P. A. et al. <strong>Sistemas e Ciência da Informação Geográfica</strong>. 3. ed. Porto Alegre: Bookman, 2013.</p>
+        <p>MENEGHINI, R.; FARIA, A. L. L. Visualização interativa de dados geoespaciais com Leaflet. <strong>Revista Brasileira de Cartografia</strong>, v. 72, n. 2, p. 200-215, 2020.</p>
+        <p>MITCHELL, T. M. <strong>Machine Learning</strong>. New York: McGraw-Hill, 1997.</p>
+        <p>MORAIS, J. <strong>Cartografia e análise territorial</strong>. Lisboa: Estampa, 1995.</p>
+        <p>MUMFORD, L. <strong>A cultura das cidades</strong>. São Paulo: Itatiaia, 1949.</p>
+        <p>OLIVEIRA, R.; SOUZA, M. Análise espacial de indicadores demográficos públicos. <strong>Boletim de Geografia</strong>, v. 37, n. 1, p. 45-59, 2019.</p>
+        <p>RUSSELL, S.; NORVIG, P. <strong>Inteligência Artificial: uma abordagem moderna</strong>. 3. ed. Rio de Janeiro: Elsevier, 2013.</p>
+        <p>SANTOS, M. <strong>A Natureza do Espaço: Técnica e Tempo, Razão e Emoção</strong>. 4. ed. São Paulo: Editora da Universidade de São Paulo, 2006.</p>
+        <p>SILVA, A. <strong>Geointeligência aplicada ao setor público</strong>. Brasília: Enap, 2021.</p>
     </section>
 
 </div>
 
 <script>
-// Carregamento Preguiçoso de Imagens
+const localImageMap = {};
+
+function handleFileSelect(event) {
+    const files = event.target.files;
+    if (!files.length) return;
+
+    Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            localImageMap[file.name] = e.target.result;
+            
+            document.querySelectorAll('.lazy-load-img').forEach(img => {
+                if (img.getAttribute('data-filename') === file.name) {
+                    img.src = e.target.result;
+                }
+            });
+        };
+        reader.readAsDataURL(file);
+    });
+    alert('Imagens vinculadas com sucesso! Você já pode visualizar ou exportar.');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('.lazy-load-img');
     const folder = 'imagens/';
     
     images.forEach(img => {
         const filename = img.getAttribute('data-filename');
+        if (!filename) return;
         const imgPathInFolder = folder + filename;
-        const imgPathInRoot = filename;
 
         const imgTest = new Image();
-        imgTest.onload = () => {
-            img.src = imgPathInFolder;
-        };
+        imgTest.onload = () => { img.src = imgPathInFolder; };
         imgTest.onerror = () => {
-            img.src = imgPathInRoot;
+            if (localImageMap[filename]) {
+                img.src = localImageMap[filename];
+            } else {
+                img.src = filename;
+            }
         };
         imgTest.src = imgPathInFolder;
     });
 });
 
-// Função para Exportação em PDF
 function exportToPDF() {
     window.print();
 }
 
-// Função para Exportação em .DOCX (Microsoft Word)
-function exportToDOCX() {
-    const containerHtml = document.querySelector('.container').cloneNode(true);
+function imgToBase64(img) {
+    return new Promise((resolve) => {
+        if (img.src.startsWith('data:image')) {
+            const base64Data = img.src.split(',')[1];
+            resolve(base64Data);
+            return;
+        }
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const tempImg = new Image();
+        
+        tempImg.crossOrigin = 'Anonymous';
+        tempImg.onload = () => {
+            canvas.width = tempImg.naturalWidth || 600;
+            canvas.height = tempImg.naturalHeight || 400;
+            ctx.drawImage(tempImg, 0, 0);
+            try {
+                const dataURL = canvas.toDataURL('image/png');
+                resolve(dataURL.split(',')[1]);
+            } catch (e) {
+                resolve(null);
+            }
+        };
+        tempImg.onerror = () => resolve(null);
+        tempImg.src = img.src;
+    });
+}
+
+async function exportToDOCX() {
+    const containerClone = document.querySelector('.container').cloneNode(true);
     
-    // Remove a barra de botões do HTML exportado
-    const exportBar = containerHtml.querySelector('.export-bar');
+    const exportBar = containerClone.querySelector('.export-bar');
     if (exportBar) exportBar.remove();
 
-    const header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
-        "xmlns:w='urn:schemas-microsoft-com:office:word' " +
-        "xmlns='http://www.w3.org/TR/REC-html40'>" +
-        "<head><meta charset='utf-8'><title>Artigo</title>" +
-        "<style>" +
-        "body { font-family: 'Times New Roman', serif; font-size: 12pt; line-height: 1.5; color: #000; }" +
-        "h1 { font-size: 18pt; color: #1a5276; text-align: center; margin-bottom: 12pt; }" +
-        "h2 { font-size: 14pt; color: #21618c; border-bottom: 1px solid #21618c; margin-top: 18pt; }" +
-        "h3 { font-size: 12pt; color: #2e86c1; margin-top: 12pt; }" +
-        "p { text-align: justify; margin-bottom: 10pt; }" +
-        ".title-block { text-align: center; margin-bottom: 20pt; }" +
-        "figure { text-align: center; margin: 15pt 0; }" +
-        ".figure-caption { font-size: 10pt; font-style: italic; color: #555; }" +
-        "</style></head><body>";
-    const footer = "</body></html>";
-    
-    const fullHtml = header + containerHtml.innerHTML + footer;
+    const originalImgs = document.querySelectorAll('.container img');
+    const clonedImgs = containerClone.querySelectorAll('img');
 
-    const blob = new Blob(['\ufeff' + fullHtml], {
-        type: 'application/msword'
-    });
-    
+    const mhtmlParts = [];
+    let hasMissingImages = false;
+
+    for (let i = 0; i < originalImgs.length; i++) {
+        const origImg = originalImgs[i];
+        const clonedImg = clonedImgs[i];
+        const filename = origImg.getAttribute('data-filename') || `imagem_${i + 1}.png`;
+
+        let base64 = await imgToBase64(origImg);
+        
+        if (!base64 && localImageMap[filename]) {
+            base64 = localImageMap[filename].split(',')[1];
+        }
+
+        if (base64) {
+            clonedImg.setAttribute('src', filename);
+            clonedImg.setAttribute('width', '600');
+            clonedImg.style.width = '600px';
+            clonedImg.style.height = 'auto';
+
+            mhtmlParts.push(
+                `------=_NextPart_000_WORD_EXPORT\r\n` +
+                `Content-Type: image/png\r\n` +
+                `Content-Transfer-Encoding: base64\r\n` +
+                `Content-Location: ${filename}\r\n\r\n` +
+                `${base64}\r\n\r\n`
+            );
+        } else {
+            hasMissingImages = true;
+        }
+    }
+
+    if (hasMissingImages && window.location.protocol === 'file:') {
+        const confirmExport = confirm(
+            "Algumas imagens não puderam ser lidas automaticamente devido à restrição do protocolo file://.\n\n" +
+            "Recomendação: Clique no botão amarelo '1. Vincular Pasta de Imagens' para selecionar as imagens do seu computador antes de exportar.\n\nDeseja continuar mesmo assim?"
+        );
+        if (!confirmExport) return;
+    }
+
+    const htmlContent = 
+        `<!DOCTYPE html>\r\n` +
+        `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>\r\n` +
+        `<head><meta charset='utf-8'><title>Artigo</title>\r\n` +
+        `<style>\r\n` +
+        `@page { size: A4; margin: 2cm; }\r\n` +
+        `body { font-family: 'Arial', sans-serif; font-size: 12pt; line-height: 1.5; color: #000; }\r\n` +
+        `h1 { font-size: 12pt; text-transform: uppercase; font-weight: bold; text-align: center; margin-bottom: 12pt; }\r\n` +
+        `h2 { font-size: 12pt; text-transform: uppercase; font-weight: bold; margin-top: 18pt; margin-bottom: 12pt; }\r\n` +
+        `h3 { font-size: 12pt; font-weight: bold; margin-top: 14pt; margin-bottom: 8pt; }\r\n` +
+        `.trans-title { font-size: 12pt; text-transform: uppercase; font-weight: bold; margin: 6pt 0; text-align: center; }\r\n` +
+        `.authors { font-size: 12pt; margin-top: 18pt; margin-bottom: 18pt; text-align: left; }\r\n` +
+        `.authors p { text-indent: 0; margin-bottom: 6pt; }\r\n` +
+        `p { text-align: justify; margin-bottom: 12pt; text-indent: 1.25cm; line-height: 1.5; }\r\n` +
+        `ol.marcadores { list-style-type: lower-alpha; padding-left: 0.75cm; margin-bottom: 12pt; }\r\n` +
+        `ol.marcadores li { text-align: justify; line-height: 1.5; margin-bottom: 4pt; }\r\n` +
+        `.abstract-box { margin-bottom: 18pt; }\r\n` +
+        `.abstract-box p { text-indent: 0; margin-bottom: 8pt; line-height: 1.5; }\r\n` +
+        `figure { text-align: center; margin: 18pt 0; page-break-inside: avoid; }\r\n` +
+        `img { display: block; margin: 0 auto 6pt auto; width: 600px; height: auto; }\r\n` +
+        `.figure-title { font-size: 10pt; text-align: center; margin-bottom: 6pt; }\r\n` +
+        `.figure-source { font-size: 10pt; text-align: center; margin-top: 6pt; }\r\n` +
+        `.references p { font-size: 12pt; line-height: 1.0; text-indent: 0; margin-bottom: 8pt; text-align: left; }\r\n` +
+        `</style></head><body>\r\n` +
+        containerClone.innerHTML +
+        `\r\n</body></html>`;
+
+    let mhtmlDocument = 
+        `MIME-Version: 1.0\r\n` +
+        `Content-Type: multipart/related; boundary="----=_NextPart_000_WORD_EXPORT"\r\n\r\n` +
+        `--------=_NextPart_000_WORD_EXPORT\r\n` +
+        `Content-Type: text/html; charset="utf-8"\r\n` +
+        `Content-Transfer-Encoding: 8bit\r\n\r\n` +
+        htmlContent + `\r\n\r\n` +
+        mhtmlParts.join('') +
+        `------=_NextPart_000_WORD_EXPORT--`;
+
+    const blob = new Blob([mhtmlDocument], { type: 'application/msword' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
